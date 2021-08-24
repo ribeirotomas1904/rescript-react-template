@@ -1,15 +1,8 @@
-%%raw(`
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+%%raw(`import './index.css';`)
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-`)
+let rootOpt = ReactDOM.querySelector("#root")
 
-Js.log("hello from rescript")
+switch rootOpt {
+| Some(root) => ReactDOM.render(<React.StrictMode> <App /> </React.StrictMode>, root)
+| None => ()
+}
